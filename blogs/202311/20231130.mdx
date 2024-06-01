@@ -1,0 +1,34 @@
+# The Upcoming Ethereum Upgrade: Cancun-Deneb 
+
+_November 30, 2023_
+
+Ethereum's upcoming upgrade is named Cancun-Deneb (Dencun). Cancun refers to upgrade the execution layer, while Deneb refers to upgrade the consensus layer. This upgrade aims at increasing the network's transaction per second (TPS) to allow for increased traffic while maintaining decentralization. It corresponds with Ethereum's tiered roadmap's "**Surge**" phase, which aims to scale the rollup performance to 100,000+ TPS.
+
+## Next Up on the Ethereum Roadmap: The Surge
+The Surge - which will focus on scaling Ethereum by making gas fee cheaper. Originally, "shard chains" was seen as the way to scale Ethereum. However, the updated roadmap states that more efficient way to scale Ethereum is through L2 rollups. This is where EIP-4844 comes in.
+
+### EIP-4844: Proto-Danksharding
+EIP-4844, or Proto-Danksharding, is a central component of the upcoming Ethereum Cancun upgrade. It serves as a transitional phase towards the full implementation of Danksharding, a process that aims to significantly enhance the scalability and transaction speed of Ethereum network. By introducing a new transaction type called "**blob-carrying transaction**" which accepts large data blobs, Proto-Danksharding is expected to reduce gas fees and increase transaction throughput, paving the way for a more scalable and efficient Ethereum network.
+
+### Blob-carrying transactions
+In Proto-Danksharding, "blobs" refers to Binary Large Objects, which are substantial data packets integrated into the Ethereum network to boost transaction throughput. These blobs contain additional information temporarily stored on the Ethereum consensus layer, facilitating a more cost-effective solution for reducing gas fees. 
+Blobs still carry the data to the L1, but instead of posting the data to the L1 chain where it lives on forever, blob data is sent to the nodes on the consensus layer. In the beginning implementation of EIP-4844, each transaction will be designed to carry up to four data blobs, of which each can hold 128 KB of data.
+
+At the consensus node level, these nodes then attest that they have received the data and that data has been made available across the network. These data blobs are then automatically deleted after one to three months. These node attestations show that the provers, which verify the legitimacy of transactions from the L2 chain, have had sufficient opportunity to verify the data. Rollup providers themselves can also store full transaction data off-chain separately if they wish to do so.
+
+While all of these implementations already sound great by themselves, Proto-Danksharding is, in fact, only a transitional phase for Ethereum as it builds the foundation for the final form of Ethereum rollup scaling: Danksharding.
+
+## What is Danksharding?
+Danksharding is a new sharding design proposed for Ethereum, introduced by Dankrad at the end of 2021. Prior to this, the scalability solution being discussed was Sharding 1.0, which can be simply understood as grouping network validators to parallelize the computation of various chain transactions. This means that a single blockchain comprises multiple parallel “shard chains.”
+
+Instead of allowing for more transactions, Danksharding focuses on increasing data availability for rollups. Rollups are a Layer 2 technology that bundles together blockchain transactions and processes them off-chain. Any rollup operator can process a batch of transactions and submit the results or a proof to the main chain.
+
+Danksharding introduces a new sharding scheme that satisfies three features: centralized block production, decentralized verification, and censorship resistance. The scheme has three core innovations:
+
+1. Data Availability Sampling (DAS): In blockchain, block producers (miners/validators) are required to disclose and provide the transaction data of the blocks they produce for full node validation. This process is referred to as Data Availability (DA). Danksharding utilizes a mathematical design that allows validation nodes to only check a portion of data fragments to obtain data availability. This greatly improves the performance of the nodes.
+
+2. Proposer-Builder Seperation (PBS): Currently, Ethereum validators create and broadcast blocks. They bundle together transactions that they have heard about through the gossip network and package them into a block that is sent out to peers on the Ethereum network. PBS splits these tasks across multiple validators. Block builders become responsible for creating blocks and offering them to the block proposer in each slot. The block proposer cannot see the contents of the block, they simply choose the most profitable one, paying a fee to the block builder before sending the block to its peers.
+
+3. Censorship-Resistance List (crList): Block producers must specify a list of all eligible transactions they see in the mempool; packers must prove they have seen this list and are required to include these transactions, preventing the intentional omission of certain legal transactions.
+
+Effectively, Danksharding allows data to be sharded and stored in a much more efficient manner, hence, allowing Ethereum to scale with hundreds of rollups without compromising on data availability. That said, in official communications from the Ethereum Foundation, Danksharding is still years away, after EIP-4844 in the Cancun upgrade is completed.
