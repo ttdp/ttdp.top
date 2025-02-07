@@ -38,7 +38,7 @@ function Copyright() {
       {new Date().getFullYear()}
       {' '}
       <Link color="inherit" href="https://beian.miit.gov.cn/">
-        沪ICP备2023033509号
+        沪ICP备2024094019号-2
       </Link>
     </Typography>
   );
